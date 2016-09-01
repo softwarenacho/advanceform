@@ -3,11 +3,11 @@ class ContactsController < ApplicationController
 	def advance_form
 		@contact = Contact.new
 		@id = params[:id]
-		p params[:phone]
 	end
 
 	def update_zoho
-		base_request = "https://crm.zoho.com/crm/private/json/Leads/updateRecords?authtoken=#{ENV[ZOHO_TOKEN]}&scope=crmapi&id=#{params[:contact][:zoho_id]}&xmlData="
+		p token = ENV['ZOHO_TOKEN']
+		base_request = "https://crm.zoho.com/crm/private/json/Leads/updateRecords?authtoken=#{token}&scope=crmapi&id=#{params[:contact][:zoho_id]}&xmlData="
 		changes = ""
 		phone = params[:contact][:phone]
 		params[:contact][:phone] = (phone == nil || (phone.scan(/\d+/).join().size < 7) || (phone.scan(/\d+/).join().size > 16)) ? phone.scan(/\d+/).join() : ""
@@ -19,7 +19,10 @@ class ContactsController < ApplicationController
 			end
 		end
 		base_xmldata = "<Leads><row no='1'>#{changes}</row></Leads>"
-		@request = base_request + base_xmldata
+		p base_request + base_xmldata
+		p "*" * 500
+		p request = URI.parse(base_request + base_xmldata)
+		p check = Net::HTTP.get(request)
 	end
 
 end

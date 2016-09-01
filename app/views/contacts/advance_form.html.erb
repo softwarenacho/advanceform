@@ -16,8 +16,10 @@
 
 				<%= p.input :knowledge, label: "Sabes algo de Programación o Desarrollo Web?", prompt: "Sabes algo?", collection: ["No se Nada","Solamente se un poco","Se algunas cosas","Ya se bastante pero quiero mejorar"], class: "form-control" %>
 
-		  	<%= p.input :phone, label:"Déjanos tu Teléfono o Celular con lada", placeholder: "ej. 52 1 5512956184", class: "form-control" %>
+				<% if params[:phone] == "" %>
+		  		<%= p.input :phone, label:"Déjanos tu Teléfono o Celular con lada", placeholder: "ej. 52 1 5512956184", class: "form-control" %>
 			  	<p class="help-block">¿Quieres un servicio personalizado? deja tu teléfono y podremos marcarte para dar seguimiento a tu aplicación</p>
+			  <% end %>
 
 			  <%= p.input :age, label:"¿Que edad tienes?", placeholder: "ej. 25", class: "form-control" %>
 
