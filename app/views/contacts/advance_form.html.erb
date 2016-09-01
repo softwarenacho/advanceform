@@ -12,28 +12,28 @@
 			<div class="col-md-12">
 				<div class="form-group" id="call_contact_form">
 
-				<%= simple_form_for @contact, url: advance_form_path, method: "post" do |p| %>
+				<%= simple_form_for @contact, url: advance_form_path, method: "POST" do |p| %>
 
-				<%= p.input :knowledge, label: "Sabes algo de Programación o Desarrollo Web?",prompt: "Sabes algo?", collection: ["No se Nada","Solamente se un poco","Se algunas cosas","Ya se bastante pero quiero mejorar"] %>
+				<%= p.input :knowledge, label: "Sabes algo de Programación o Desarrollo Web?", prompt: "Sabes algo?", collection: ["No se Nada","Solamente se un poco","Se algunas cosas","Ya se bastante pero quiero mejorar"], class: "form-control" %>
 
-		  	<%= p.input :phone, label:"Déjanos tu Teléfono o Celular con lada", placeholder: "ej. 52 1 5512956184" %>
-			  	<p>¿Quieres un servicio personalizado? deja tu teléfono y podremos marcarte para dar seguimiento a tu aplicación</p>
+		  	<%= p.input :phone, label:"Déjanos tu Teléfono o Celular con lada", placeholder: "ej. 52 1 5512956184", class: "form-control" %>
+			  	<p class="help-block">¿Quieres un servicio personalizado? deja tu teléfono y podremos marcarte para dar seguimiento a tu aplicación</p>
 
-			  <%= p.input :age, label:"¿Que edad tienes?", placeholder: "ej. 25" %>
+			  <%= p.input :age, label:"¿Que edad tienes?", placeholder: "ej. 25", class: "form-control" %>
 
-				<%= p.input :gender, label: "Genero", prompt: "Genero", collection: ["Masculino","Femenino"] %>
+				<%= p.input :gender, label: "Genero", prompt: "Genero", collection: ["Masculino","Femenino"], class: "form-control" %>
 
-				<%= p.input :activity, label: "¿A que te dedicas?", prompt: "Ocupación", collection: [["Trabajo","Trabaja"],["Estudio","Estudia"],["Trabajo y Estudio","Trabaja y Estudia"],["No hago nada","Nini"]] %>
+				<%= p.input :activity, label: "¿A que te dedicas?", prompt: "Ocupación", collection: [["Trabajo","Trabaja"],["Estudio","Estudia"],["Trabajo y Estudio","Trabaja y Estudia"],["No hago nada","Nini"]], class: "form-control" %>
 
-				<%= p.input :profesion, label: "Profesión - ¿Que carrera estudias? - Si Trabajas, ¿A que te dedicas y cual es tu puesto?", placeholder: "Ingeniero en Sistemas  - Diseñadora Gráfica - Abogado - psicólogo" %>
+				<%= p.input :profesion, label: "Profesión - ¿Que carrera estudias? - Si Trabajas, ¿A que te dedicas y cual es tu puesto?", placeholder: "Ingeniero en Sistemas  - Diseñadora Gráfica - Abogado - psicólogo", class: "form-control" %>
 
-				<%= p.input :profesion_type, label: "Alguna de estas profesiones aplica a lo que te dedicas o estudias?",prompt: "Tipo de Profesión",  collection: [["Desarrollo Web, Páginas de Internet","Desarrollo Web"],["Marketing Digital","Marketing Digital"],["Algo de Tecnología: Sistemas, Computación, Programación, Ingeniería en algo relacionado con Tecnología, Etc.","Tecnología"],["Diseño pero NO Web","Diseño NO web"],["Otro","Otro"]] %>
+				<%= p.input :profesion_type, label: "Alguna de estas profesiones aplica a lo que te dedicas o estudias?",prompt: "Tipo de Profesión",  collection: [["Desarrollo Web, Páginas de Internet","Desarrollo Web"],["Marketing Digital","Marketing Digital"],["Algo de Tecnología: Sistemas, Computación, Programación, Ingeniería en algo relacionado con Tecnología, Etc.","Tecnología"],["Diseño pero NO Web","Diseño NO web"],["Otro","Otro"]], class: "form-control" %>
 
-				<%= p.input :residence, label: "Residencia", prompt: "Residencia", collection: [["Ciudad de México","CDMX"],["Otro estado de la República","República"],["Extranjero","Extranjero"]] %>
+				<%= p.input :residence, label: "Residencia", prompt: "Residencia", collection: [["Ciudad de México","CDMX"],["Otro estado de la República","República"],["Extranjero","Extranjero"]], class: "form-control" %>
 
-				<%= p.input :availability, label: "Que modalidad te interesa?", prompt: "Disponibilidad", collection: ["Cualquiera","Tiempo Completo","Medio Tiempo","En línea","Otra Modalidad"] %>
+				<%= p.input :availability, label: "Que modalidad te interesa?", prompt: "Disponibilidad", collection: ["Cualquiera","Tiempo Completo","Medio Tiempo","En línea","Otra Modalidad"], class: "form-control" %>
 
-				<%= p.input :payment_method, label: "Como te gustaría pagar el curso", prompt: "Método de Pago", collection: ["Contado","Parcialidades","Financiamiento","Tarjeta de Crédito", "Otro"] %>
+				<%= p.input :payment_method, label: "Como te gustaría pagar el curso", prompt: "Método de Pago", collection: ["Contado","Parcialidades","Financiamiento","Tarjeta de Crédito", "Otro"], class: "form-control" %>
 				<br><br>
 				<div class="col-md-6 col-md-offset-3">
 

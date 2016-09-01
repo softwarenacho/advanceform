@@ -1,3 +1,5 @@
-GRACIAS <a href="<%= @request %>">Update</a>
-<br>
-<h1>	<%= @request %> </h1>
+<% if @check == true  %>
+	GRACIAS
+<% else %>
+	ERROR
+<% end %>

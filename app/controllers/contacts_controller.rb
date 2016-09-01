@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 	end
 
 	def update_zoho
-		base_request = "https://crm.zoho.com/crm/private/json/Leads/updateRecords?authtoken=3249a0d6ddd35f13918e964ce714677f&scope=crmapi&id=#{params[:contact][:zoho_id]}&xmlData="
+		base_request = "https://crm.zoho.com/crm/private/json/Leads/updateRecords?authtoken=#{ENV[ZOHO_TOKEN]}&scope=crmapi&id=#{params[:contact][:zoho_id]}&xmlData="
 		changes = ""
 		phone = params[:contact][:phone]
 		params[:contact][:phone] = (phone == nil || (phone.scan(/\d+/).join().size < 7) || (phone.scan(/\d+/).join().size > 16)) ? phone.scan(/\d+/).join() : ""
