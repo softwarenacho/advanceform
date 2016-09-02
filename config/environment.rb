@@ -5,11 +5,19 @@ require 'net/http'
 require 'open-uri'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-env_config = YAML.load_file(APP_ROOT.join('config', 'zoho.yml'))
 
-env_config.each do |key, value|
-  ENV[key] = value
+def development_yml
+
+	env_config = YAML.load_file(APP_ROOT.join('config', 'zoho.yml'))
+
+	env_config.each do |key, value|
+	  ENV[key] = value
+	end
 end
+
+dev_file = File.join(Rails.root, 'config', 'twitter_secrets.yml')
+
+development_yml if File.exists?(dev_file)
 
 # Initialize the Rails application.
 Rails.application.initialize!
