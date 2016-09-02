@@ -3,6 +3,7 @@ require File.expand_path('../application', __FILE__)
 
 require 'net/http'
 require 'open-uri'
+require 'pp'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 

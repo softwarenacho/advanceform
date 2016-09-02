@@ -19,6 +19,8 @@
 				<% if params[:phone] == "" %>
 		  		<%= p.input :phone, label:"Déjanos tu Teléfono o Celular con lada", placeholder: "ej. 52 1 5512956184", class: "form-control" %>
 			  	<p class="help-block">¿Quieres un servicio personalizado? deja tu teléfono y podremos marcarte para dar seguimiento a tu aplicación</p>
+			  <% else  %>
+			  	<input type="hidden" name="contact[phone]" value="<%= params[:phone] %>">
 			  <% end %>
 
 			  <%= p.input :age, label:"¿Que edad tienes?", placeholder: "ej. 25", class: "form-control" %>

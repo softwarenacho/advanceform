@@ -2,13 +2,20 @@ class ContactsController < ApplicationController
 
 	def advance_form
 		@contact = Contact.new
-		@id = params[:id]
+		params[:phone] = params[:Phone] if params[:Phone]
+		if params[:id]
+			@id = params[:id]
+		else
+			p request = URI.parse("https://crm.zoho.com/crm/private/json/Leads/searchRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&selectColumns=Leads(LEADID) &criteria=(Email:#{params[:Email]})")
+			p @id = JSON.parse(Net::HTTP.get(request))["response"]["result"]["Leads"]["row"]["FL"]["content"]
+		end
 	end
 
 	def update_zoho
-		p token = ENV['ZOHO_TOKEN']
-		base_request = "https://crm.zoho.com/crm/private/json/Leads/updateRecords?authtoken=#{token}&scope=crmapi&id=#{params[:contact][:zoho_id]}&xmlData="
+		base_request = "https://crm.zoho.com/crm/private/json/Leads/updateRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&id=#{params[:contact][:zoho_id]}&xmlData="
 		changes = ""
+		p "Estos son los params de update zoho"
+		p params[:contact][:phone]
 		phone = params[:contact][:phone]
 		params[:contact][:phone] = (phone == nil || (phone.scan(/\d+/).join().size < 7) || (phone.scan(/\d+/).join().size > 16)) ? phone.scan(/\d+/).join() : ""
 		params[:contact].each do |k,v|
@@ -19,8 +26,8 @@ class ContactsController < ApplicationController
 			end
 		end
 		base_xmldata = "<Leads><row no='1'>#{changes}</row></Leads>"
-		request = URI.parse(base_request + base_xmldata)
-		@check = JSON.parse(Net::HTTP.get(request))
+		p request = URI.parse(base_request + base_xmldata)
+		p 		@check = JSON.parse(Net::HTTP.get(request))
 	end
 
 end
