@@ -19,10 +19,8 @@ class ContactsController < ApplicationController
 			end
 		end
 		base_xmldata = "<Leads><row no='1'>#{changes}</row></Leads>"
-		p base_request + base_xmldata
-		p "*" * 500
-		p request = URI.parse(base_request + base_xmldata)
-		p check = Net::HTTP.get(request)
+		request = URI.parse(base_request + base_xmldata)
+		@check = JSON.parse(Net::HTTP.get(request))
 	end
 
 end
