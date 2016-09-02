@@ -17,30 +17,17 @@ ActiveRecord::Schema.define(version: 20160901180409) do
   enable_extension "plpgsql"
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "zoho_id"
-    t.string   "email"
-    t.text     "message"
-    t.string   "activity"
-    t.string   "contacto"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "phone"
-    t.text     "notes"
-    t.boolean  "read",                   default: false
-    t.integer  "age"
-    t.string   "gender"
-    t.string   "profesion"
-    t.string   "profesion_type"
-    t.string   "residence"
-    t.string   "availability"
-    t.string   "payment_method"
-    t.boolean  "scholarship_importance", default: false
-    t.string   "knowledge"
-    t.date     "call_again"
-    t.boolean  "completed_advance_form", default: false
-    t.string   "conclusion"
-    t.string   "clean_phone"
+    t.string  "zoho_id"
+    t.string  "knowledge"
+    t.string  "phone"
+    t.integer "age"
+    t.string  "gender"
+    t.string  "activity"
+    t.string  "profesion"
+    t.string  "profesion_type"
+    t.string  "residence"
+    t.string  "availability"
+    t.string  "payment_method"
   end
 
 end
