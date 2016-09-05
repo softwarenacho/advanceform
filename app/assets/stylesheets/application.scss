@@ -14,10 +14,17 @@
  *= require_self
  */
 @import "bootstrap";
+@import "font-awesome";
+
+$grayLight: #999999;
+$grayMediumLight: #eaeaea;
+$grayDarker: #222222;
 
 body {
   padding-top: 50px;
 }
+
+// HEADER
 
 #trasparent_header {
   background-color: rgba(0,0,0,0.65);
@@ -37,4 +44,33 @@ body {
 
 .navbar {
   max-height: 50px !important;
+}
+
+// FOOTER
+
+.codealab-footer-logo {
+  height: 17px;
+  display: inline-block;
+}
+
+footer {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  padding: 10px 20px 10px 20px;
+  border-top: 2px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
