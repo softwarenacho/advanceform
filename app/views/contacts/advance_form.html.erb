@@ -22,7 +22,7 @@
       <% if params[:phone] == "" %>
         <div class="form-group">
           <%= p.input :phone, label:"Déjanos tu teléfono o celular con lada",
-                              placeholder: "ej. 52 1 5512956184",
+                              placeholder: "Ej. 52 1 5512956184",
                               input_html: { class: "form-control" } %>
         </div>
         <p class="help-block">¿Quieres un servicio personalizado? Déjanos tu
@@ -32,7 +32,7 @@
       <% end %>
       <div class="form-group">
         <%= p.input :age, label:"¿Qué edad tienes?",
-                          placeholder: "ej. 25",
+                          placeholder: "Ej. 25",
                           input_html: { class: "form-control" } %>
       </div>
       <div class="form-group">
@@ -52,12 +52,12 @@
       </div>
       <div class="form-group">
         <%= p.input :profesion, label: "Profesión - ¿Qué carrera estudias?, si trabajas ¿a qué te dedicas?",
-                                placeholder: "Ej. Ingeniero en Computación - Web developer",
+                                placeholder: "Ej. Ingeniería en Computación - Desarrollador Web",
                                 input_html: { class: "form-control" } %>
       </div>
       <div class="form-group">
         <%= p.input :profesion_type, label: "¿Alguna de estas profesiones aplica a lo que te dedicas o estudias?",
-                                     prompt: "Tipo de Profesión",
+                                     prompt: "-",
                                      collection: ["Desarrollo Web",
                                                  "Desarrollo de Software",
                                                  "Alguna Ingeniería",
