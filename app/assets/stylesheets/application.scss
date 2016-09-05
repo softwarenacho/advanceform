@@ -14,3 +14,27 @@
  *= require_self
  */
 @import "bootstrap";
+
+body {
+  padding-top: 50px;
+}
+
+#trasparent_header {
+  background-color: rgba(0,0,0,0.65);
+}
+
+#logo {
+  margin-top: -3px;
+  color: white;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  max-height: 50px !important;
+}
