@@ -14,6 +14,7 @@ class ContactsController < ApplicationController
 				base_xmldata = "<Leads><row no='1'>#{changes}</row></Leads>"
 			p "*" *50
 			pp @id = @id["response"]["result"]["Leads"]["row"]["FL"][0]["content"]
+			end
 		end
 	end
 
