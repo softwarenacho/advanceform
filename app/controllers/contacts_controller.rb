@@ -6,8 +6,14 @@ class ContactsController < ApplicationController
 		if params[:id]
 			@id = params[:id]
 		else
-			p request = URI.parse("https://crm.zoho.com/crm/private/json/Leads/searchRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&selectColumns=Leads(LEADID) &criteria=(Email:#{params[:Email]})")
-			p @id = JSON.parse(Net::HTTP.get(request))["response"]["result"]["Leads"]["row"]["FL"]["content"]
+			p request = URI.parse("https://crm.zoho.com/crm/private/json/Leads/searchRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&criteria=(Email:#{params[:Email]})")
+			p "*" *50
+			pp response = JSON.parse(Net::HTTP.get(request))
+			if response["response"]["message"] == "There is no data to show"
+				base_request = "https://crm.zoho.com/crm/private/xml/Leads/insertRecords?newFormat=1&authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&xmlData="
+				base_xmldata = "<Leads><row no='1'>#{changes}</row></Leads>"
+			p "*" *50
+			pp @id = @id["response"]["result"]["Leads"]["row"]["FL"][0]["content"]
 		end
 	end
 
