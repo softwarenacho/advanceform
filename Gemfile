@@ -27,8 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # easy form generation
 gem 'simple_form'
-# Easy rest petions
-gem 'rest-client'
+# Easy URI parse with international characters petions
+gem 'addressable'
+
 
 # Font Awesome
 gem "font-awesome-rails"
