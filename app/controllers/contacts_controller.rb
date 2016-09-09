@@ -3,15 +3,15 @@ class ContactsController < ApplicationController
 	def advance_form
 		p "Trying console print"
 		@contact = Contact.new
-		if params[:id]
+		# if params[:id]
 			pp @id = params[:id]
-		else
-			# request = URI.parse("https://crm.zoho.com/crm/private/json/Leads/searchRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&criteria=(Email:#{params[:email]})")
-			# pp response = JSON.parse(Net::HTTP.get(request))
+		# else
+		# 	# request = URI.parse("https://crm.zoho.com/crm/private/json/Leads/searchRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&criteria=(Email:#{params[:email]})")
+		# 	# pp response = JSON.parse(Net::HTTP.get(request))
 
-			# @id = response["response"]["result"]["Leads"]["row"]["FL"][0]["content"]
-			pp @id = false
-		end
+		# 	# @id = response["response"]["result"]["Leads"]["row"]["FL"][0]["content"]
+		# 	pp @id = false
+		# end
 	end
 
   def update_zoho
