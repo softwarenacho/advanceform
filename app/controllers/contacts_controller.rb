@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
 
 	def advance_form
 		@contact = Contact.new
+		params["name"] = params["name"].force_encoding('iso-8859-1').encode('utf-8')
 		if params[:id]
 			@id = params[:id]
 		else
