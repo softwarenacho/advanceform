@@ -5,10 +5,11 @@ class ContactsController < ApplicationController
 		if params[:id]
 			@id = params[:id]
 		else
-			request = URI.parse("https://crm.zoho.com/crm/private/json/Leads/searchRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&criteria=(Email:#{params[:email]})")
-			pp response = JSON.parse(Net::HTTP.get(request))
+			# request = URI.parse("https://crm.zoho.com/crm/private/json/Leads/searchRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&criteria=(Email:#{params[:email]})")
+			# pp response = JSON.parse(Net::HTTP.get(request))
 
-			@id = response["response"]["result"]["Leads"]["row"]["FL"][0]["content"]
+			# @id = response["response"]["result"]["Leads"]["row"]["FL"][0]["content"]
+			@id = false
 		end
 	end
 
