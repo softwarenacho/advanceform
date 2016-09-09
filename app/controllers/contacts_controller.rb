@@ -16,8 +16,8 @@ class ContactsController < ApplicationController
   def update_zoho
     base_request = "https://crm.zoho.com/crm/private/json/Leads/updateRecords?authtoken=#{ENV['ZOHO_TOKEN']}&scope=crmapi&id=#{params[:contact][:zoho_id]}&xmlData="
     changes = ""
-    @phone = params[:contact][:phone]
-    params[:contact][:phone] = (@phone == nil || (@phone.scan(/\d+/).join().size < 7) || (@phone.scan(/\d+/).join().size > 16)) ? @phone.scan(/\d+/).join() : ""
+    phone = params[:contact][:phone]
+    params[:contact][:phone] = (phone == nil || (phone.scan(/\d+/).join().size < 7) || (phone.scan(/\d+/).join().size > 16)) ? phone.scan(/\d+/).join() : ""
     params[:contact].each do |k,v|
       if v != "" && k != :zoho_id.to_s
         field = k.capitalize.dup
@@ -26,8 +26,9 @@ class ContactsController < ApplicationController
       end
      end
     base_xmldata = "<Leads><row no='1'>#{changes}</row></Leads>"
-    p request = URI.parse(URI.escape(base_request + base_xmldata))
-    p @check = JSON.parse(Net::HTTP.get(request))
+    request = URI.parse(URI.escape(base_request + base_xmldata))
+    check = JSON.parse(Net::HTTP.get(request))
+    @params = params[:contact]
   end
 
 end
