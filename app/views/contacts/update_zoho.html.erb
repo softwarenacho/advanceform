@@ -1,13 +1,13 @@
 <section class="promo section section-on-bg">
   <div class="container text-center homecontainer">
-    <h4 style="color: #595959;">Gracias por enviarnos tu información estaremos en contacto contigo muy pronto</h4>
+    <h4 style="color: #595959;">Gracias por enviarnos tu información, muy pronto estaremos en contacto contigo</h4>
     <br>
     <br>
-    <h2 class="title">Ahora accede a tu <span style="color: #E0A64C">clase Demo</span>, diviertete y empieza a aprender a programar</h2>
+    <h2 class="title">Ahora accede a tu <span style="color: #E0A64C">clase Demo</span>, diviértete y empieza a aprender a programar</h2>
     <br>
     <br>
     <div class="promohome">
-      <a href="http://www.locomotion.mx/register_demo_codea?phone=<%= @params[:phone] if @params %>&email=<%= @params[:email] if @params %>&name=<%= @params[:name] if @params %>", class="btn btn-large">
+      <a href="http://www.locomotion.mx/register_demo_codea?phone=<%= @params[:phone] if @params %>&email=<%= @params[:email] if @params %>&name=<%= @params[:name].gsub(" ", "%20") if @params %>", class="btn btn-large">
         Clase Demo
       </a>
     </div>
