@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
 
 	def advance_form
+		p "Trying console print"
 		@contact = Contact.new
 		if params[:id]
 			pp @id = params[:id]
